@@ -21,18 +21,16 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineExpose } from 'vue';
 
-// Define los props que este componente puede recibir
 const props = defineProps({
   modalId: {
     type: String,
-    required: true, // El ID es necesario para que funcione la apertura/cierre
-    default: 'default_modal_id' // Un valor por defecto para evitar errores si se olvida
+    required: true,
+    default: 'default_modal_id'
   }
 });
 
-// La función para abrir el modal, que será expuesta para que el padre la pueda llamar
 const openModal = () => {
   const modalElement = document.getElementById(props.modalId);
   if (modalElement) {
@@ -40,9 +38,16 @@ const openModal = () => {
   }
 };
 
-// Exponemos la función openModal para que el componente padre pueda llamarla
+const close = () => { // Función para cerrar el modal programáticamente
+  const modalElement = document.getElementById(props.modalId);
+  if (modalElement) {
+    modalElement.close();
+  }
+};
+
 defineExpose({
-  openModal
+  openModal,
+  close // <-- Asegúrate de que 'close' está aquí
 });
 </script>
 
