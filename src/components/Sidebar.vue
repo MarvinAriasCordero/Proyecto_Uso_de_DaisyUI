@@ -51,11 +51,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'; // Eliminar defineProps
+import { ref, onMounted, onUnmounted } from 'vue'; 
 
 // --- Local Storage Persistence para Sidebar ---
 const STORAGE_KEY = 'projects';
-const projects = ref([]); // Inicialmente vacío o puedes poner un array por defecto si lo prefieres
+const projects = ref([]); // Inicialmente vacío
 
 // Cargar proyectos al montar el componente
 onMounted(() => {
@@ -69,7 +69,7 @@ onMounted(() => {
     }
   }
 
-  // Opcional: Escuchar eventos de storage para actualizar si otra pestaña cambia localStorage
+
   window.addEventListener('storage', handleStorageChange);
 });
 
