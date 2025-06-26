@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-// No necesitas importar componentes aquí si se cargan a través del router
+
 </script>
 
 <style>
